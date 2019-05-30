@@ -69,6 +69,10 @@ cd ~/streamsite
 ~/streamsite/manage.py migrate
 ~/streamsite/manage.py createsuperuser
 ```
+collectstatic
+```
+~/streamsite/manage.py collectstatic
+```
 
 change setting.py
 
