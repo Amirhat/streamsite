@@ -1,5 +1,92 @@
 # live stream with Django + nginx + hls
 
+
+# edit 
+```
+sudo apt update
+sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev
+
+
+
+
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz
+tar -zxf pcre-8.42.tar.gz
+rm -rf pcre-8.42.tar.gz
+cd pcre-8.42
+./configure
+make
+sudo make install
+cd
+
+
+wget http://zlib.net/zlib-1.2.11.tar.gz
+tar -zxf zlib-1.2.11.tar.gz
+rm -rf zlib-1.2.11.tar.gz
+cd zlib-1.2.11
+./configure
+make
+sudo make install
+cd 
+
+
+wget http://www.openssl.org/source/openssl-1.0.2q.tar.gz
+tar -zxf openssl-1.0.2q.tar.gz
+rm -rf openssl-1.0.2.tar.gz
+cd openssl-1.0.2q
+./config
+make
+sudo make install
+cd
+
+
+git clone git://github.com/arut/nginx-rtmp-module.git
+
+
+
+wget https://nginx.org/download/nginx-1.14.2.tar.gz
+tar zxf nginx-1.14.2.tar.gz
+rm -rf nginx-1.14.2.tar.gz
+cd nginx-1.14.2
+
+
+
+
+./configure  --add-module=../nginx-rtmp-module \
+--sbin-path=/usr/sbin/nginx \
+--lock-path=/var/run/nginx.lock \
+--conf-path=/etc/nginx/nginx.conf \
+--pid-path=/run/nginx.pid \
+--with-pcre=../pcre-8.42 \
+--with-zlib=../zlib-1.2.11 \
+--with-openssl=../openssl-1.0.2q \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--user=nginx \
+--group=nginx \
+--with-http_auth_request_module \
+--with-http_degradation_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-http_mp4_module \
+--with-http_perl_module \
+--with-http_realip_module \
+--with-http_secure_link_module \
+--with-http_slice_module \
+--with-http_ssl_module  \
+--with-http_stub_status_module \
+--with-http_v2_module \
+--with-stream_ssl_module \
+--with-stream \
+--with-threads \
+--prefix=/etc/nginx
+
+
+
+make
+sudo make install
+
+```
+
 ### compile and install nginx:
 
 open terminal and download nginx
