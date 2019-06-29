@@ -1,5 +1,19 @@
 # live stream with Django + nginx + hls
 
+edit 2
+
+```
+./configure --add-module=../nginx-rtmp-module/ --add-module=../nginx-vod-module/ --with-file-aio --with-threads --with-zlib=../zlib-1.2.11 \
+--prefix=/etc/nginx\
+--sbin-path=/usr/sbin/nginx \
+--lock-path=/var/run/nginx.lock \
+--conf-path=/etc/nginx/nginx.conf \
+--pid-path=/run/nginx.pid \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--user=nginx \
+--group=nginx \
+```
 
 # edit 
 ```
